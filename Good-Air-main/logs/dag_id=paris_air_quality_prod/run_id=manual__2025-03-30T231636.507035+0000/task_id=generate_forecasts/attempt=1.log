@@ -1,0 +1,109 @@
+[2025-03-30T23:16:46.623+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-30T23:16:46.787+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-03-30T23:16:36.507035+00:00 [queued]>
+[2025-03-30T23:16:46.799+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-03-30T23:16:36.507035+00:00 [queued]>
+[2025-03-30T23:16:46.800+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-03-30T23:16:46.819+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): generate_forecasts> on 2025-03-30 23:16:36.507035+00:00
+[2025-03-30T23:16:46.827+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'paris_air_quality_prod', 'generate_forecasts', 'manual__2025-03-30T23:16:36.507035+00:00', '--job-id', '673', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmpn8c3ppzl']
+[2025-03-30T23:16:46.829+0000] {standard_task_runner.py:105} INFO - Job 673: Subtask generate_forecasts
+[2025-03-30T23:16:46.830+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4726) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-30T23:16:46.831+0000] {standard_task_runner.py:72} INFO - Started process 4751 to run task
+[2025-03-30T23:16:46.978+0000] {task_command.py:467} INFO - Running <TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-03-30T23:16:36.507035+00:00 [running]> on host 04906466de51
+[2025-03-30T23:16:47.263+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='paris_air_quality_prod' AIRFLOW_CTX_TASK_ID='generate_forecasts' AIRFLOW_CTX_EXECUTION_DATE='2025-03-30T23:16:36.507035+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-30T23:16:36.507035+00:00'
+[2025-03-30T23:16:47.264+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-30T23:16:47.323+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-30T23:16:47.387+0000] {data_enriched_predict.py:172} INFO - Données historiques chargées: 160 lignes
+[2025-03-30T23:16:47.392+0000] {data_enriched_predict.py:156} INFO - Données d'entraînement préparées: 160 lignes
+[2025-03-30T23:16:47.465+0000] {data_enriched_predict.py:196} INFO - Score R² du modèle: 1.000
+[2025-03-30T23:16:47.466+0000] {data_enriched_predict.py:81} INFO - Récupération des prévisions météo avec les paramètres: {'latitude': 48.8566, 'longitude': 2.3522, 'hourly': ['temperature_2m', 'relative_humidity_2m', 'pressure_msl', 'precipitation'], 'forecast_days': 28}
+[2025-03-30T23:16:47.601+0000] {data_enriched_predict.py:119} ERROR - Erreur lors de l'appel à l'API OpenMeteo: 400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=48.8566&longitude=2.3522&hourly=temperature_2m&hourly=relative_humidity_2m&hourly=pressure_msl&hourly=precipitation&forecast_days=28
+[2025-03-30T23:16:47.602+0000] {data_enriched_predict.py:121} ERROR - Réponse de l'API: {"reason":"Forecast days is invalid. Allowed range 0 to 16. Given 16.","error":true}
+[2025-03-30T23:16:47.603+0000] {data_enriched_predict.py:263} ERROR - Erreur lors de l'entraînement et de la prédiction: Aucune prévision météo disponible
+[2025-03-30T23:16:47.604+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/data_enriched_predict.py", line 201, in train_and_predict
+    raise ValueError("Aucune prévision météo disponible")
+ValueError: Aucune prévision météo disponible
+[2025-03-30T23:16:47.665+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=paris_air_quality_prod, task_id=generate_forecasts, run_id=manual__2025-03-30T23:16:36.507035+00:00, execution_date=20250330T231636, start_date=20250330T231646, end_date=20250330T231647
+[2025-03-30T23:16:47.688+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-30T23:16:47.688+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 673 for task generate_forecasts (Aucune prévision météo disponible; 4751)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/data_enriched_predict.py", line 201, in train_and_predict
+    raise ValueError("Aucune prévision météo disponible")
+ValueError: Aucune prévision météo disponible
+[2025-03-30T23:16:47.730+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-30T23:16:47.891+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-30T23:16:47.894+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,112 @@
+[2025-03-28T21:40:18.709+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-28T21:40:18.756+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.generate_air_quality_forecasts scheduled__2025-03-28T21:20:00+00:00 [queued]>
+[2025-03-28T21:40:18.769+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.generate_air_quality_forecasts scheduled__2025-03-28T21:20:00+00:00 [queued]>
+[2025-03-28T21:40:18.770+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-03-28T21:40:18.785+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): generate_air_quality_forecasts> on 2025-03-28 21:20:00+00:00
+[2025-03-28T21:40:18.794+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_monitoring_v3', 'generate_air_quality_forecasts', 'scheduled__2025-03-28T21:20:00+00:00', '--job-id', '475', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmpilqivvcy']
+[2025-03-28T21:40:18.796+0000] {standard_task_runner.py:105} INFO - Job 475: Subtask generate_air_quality_forecasts
+[2025-03-28T21:40:18.796+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=16022) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-28T21:40:18.797+0000] {standard_task_runner.py:72} INFO - Started process 16047 to run task
+[2025-03-28T21:40:18.937+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_monitoring_v3.generate_air_quality_forecasts scheduled__2025-03-28T21:20:00+00:00 [running]> on host 04906466de51
+[2025-03-28T21:40:19.133+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_monitoring_v3' AIRFLOW_CTX_TASK_ID='generate_air_quality_forecasts' AIRFLOW_CTX_EXECUTION_DATE='2025-03-28T21:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-28T21:20:00+00:00'
+[2025-03-28T21:40:19.134+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-28T21:40:19.298+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T21:40:19.301+0000] {data_enriched_predict.py:231} INFO - Chargement des données historiques...
+[2025-03-28T21:40:19.365+0000] {data_enriched_predict.py:238} INFO - Nettoyage des données...
+[2025-03-28T21:40:19.369+0000] {data_enriched_predict.py:252} INFO - Entraînement du modèle...
+[2025-03-28T21:40:19.376+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/extmath.py:1101 RuntimeWarning: invalid value encountered in divide
+[2025-03-28T21:40:19.377+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/extmath.py:1106 RuntimeWarning: invalid value encountered in divide
+[2025-03-28T21:40:19.378+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/extmath.py:1126 RuntimeWarning: invalid value encountered in divide
+[2025-03-28T21:40:19.556+0000] {data_enriched_predict.py:266} INFO - Génération des prévisions...
+[2025-03-28T21:40:19.560+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.561+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.563+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.564+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.565+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.566+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.567+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.568+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.569+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.570+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.572+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.573+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.574+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.575+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.576+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.577+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.578+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.579+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.580+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.581+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.582+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.583+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.584+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.585+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.587+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.588+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.590+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.591+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.592+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.594+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.595+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.596+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.597+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.598+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.599+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.600+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.601+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.603+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.604+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.605+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.606+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.607+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.608+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.609+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.610+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.611+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.612+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.613+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.614+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.615+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.616+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.618+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.619+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.620+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.622+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.622+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.623+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.624+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.625+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.626+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.627+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.628+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.629+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.630+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.631+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.632+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.633+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.634+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.635+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.636+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.637+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.638+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.639+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.640+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.641+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.642+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.644+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.645+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.646+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.647+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.648+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.649+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.650+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.651+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/numpy/lib/nanfunctions.py:1215 RuntimeWarning: Mean of empty slice
+[2025-03-28T21:40:19.690+0000] {data_enriched_predict.py:295} INFO - Stockage des prévisions...
+[2025-03-28T21:40:19.704+0000] {data_enriched_predict.py:307} INFO - 84 prévisions stockées
+[2025-03-28T21:40:19.705+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-28T21:40:19.743+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-28T21:40:19.744+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_monitoring_v3, task_id=generate_air_quality_forecasts, run_id=scheduled__2025-03-28T21:20:00+00:00, execution_date=20250328T212000, start_date=20250328T214018, end_date=20250328T214019
+[2025-03-28T21:40:19.775+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-28T21:40:19.821+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-28T21:40:19.824+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

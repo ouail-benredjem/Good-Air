@@ -1,0 +1,36 @@
+[2025-04-10T12:18:41.121+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T12:18:41.170+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-04-10T12:18:31.286167+00:00 [queued]>
+[2025-04-10T12:18:41.181+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-04-10T12:18:31.286167+00:00 [queued]>
+[2025-04-10T12:18:41.182+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-04-10T12:18:41.201+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): generate_forecasts> on 2025-04-10 12:18:31.286167+00:00
+[2025-04-10T12:18:41.213+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'paris_air_quality_prod', 'generate_forecasts', 'manual__2025-04-10T12:18:31.286167+00:00', '--job-id', '783', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmppb0vzso9']
+[2025-04-10T12:18:41.217+0000] {standard_task_runner.py:105} INFO - Job 783: Subtask generate_forecasts
+[2025-04-10T12:18:41.218+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1305) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-10T12:18:41.218+0000] {standard_task_runner.py:72} INFO - Started process 1330 to run task
+[2025-04-10T12:18:41.395+0000] {task_command.py:467} INFO - Running <TaskInstance: paris_air_quality_prod.generate_forecasts manual__2025-04-10T12:18:31.286167+00:00 [running]> on host 04906466de51
+[2025-04-10T12:18:41.605+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='paris_air_quality_prod' AIRFLOW_CTX_TASK_ID='generate_forecasts' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T12:18:31.286167+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-10T12:18:31.286167+00:00'
+[2025-04-10T12:18:41.606+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-10T12:18:41.689+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:18:41.925+0000] {data_enriched_predict.py:213} INFO - Données historiques chargées: 880 lignes
+[2025-04-10T12:18:41.930+0000] {data_enriched_predict.py:197} INFO - Données d'entraînement préparées: 880 lignes
+[2025-04-10T12:18:42.097+0000] {data_enriched_predict.py:237} INFO - Score R² du modèle: 0.672
+[2025-04-10T12:18:42.097+0000] {data_enriched_predict.py:81} INFO - Récupération des prévisions météo avec les paramètres: {'latitude': 48.8566, 'longitude': 2.3522, 'hourly': ['temperature_2m', 'relative_humidity_2m', 'pressure_msl', 'precipitation'], 'forecast_days': 16}
+[2025-04-10T12:18:42.250+0000] {data_enriched_predict.py:115} INFO - Récupération des prévisions météo pour la période suivante avec les paramètres: {'latitude': 48.8566, 'longitude': 2.3522, 'hourly': ['temperature_2m', 'relative_humidity_2m', 'pressure_msl', 'precipitation'], 'past_days': 1, 'forecast_days': 12}
+[2025-04-10T12:18:42.425+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:18:42.508+0000] {data_enriched_predict.py:154} INFO - Prévisions météo enregistrées: 384 lignes
+[2025-04-10T12:18:42.516+0000] {data_enriched_predict.py:155} INFO - Exemple de données:
+                  timestamp  temperature  ...   city  forecast_date
+0 2025-04-10 02:00:00+02:00          9.4  ...  Paris     2025-04-10
+1 2025-04-10 03:00:00+02:00          8.5  ...  Paris     2025-04-10
+2 2025-04-10 04:00:00+02:00          7.7  ...  Paris     2025-04-10
+3 2025-04-10 05:00:00+02:00          6.8  ...  Paris     2025-04-10
+4 2025-04-10 06:00:00+02:00          6.1  ...  Paris     2025-04-10
+
+[5 rows x 7 columns]
+[2025-04-10T12:18:42.627+0000] {data_enriched_predict.py:301} INFO - Prévisions enregistrées pour 17 jours
+[2025-04-10T12:18:42.628+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-10T12:18:42.786+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-10T12:18:42.787+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=paris_air_quality_prod, task_id=generate_forecasts, run_id=manual__2025-04-10T12:18:31.286167+00:00, execution_date=20250410T121831, start_date=20250410T121841, end_date=20250410T121842
+[2025-04-10T12:18:42.841+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T12:18:42.893+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T12:18:42.895+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

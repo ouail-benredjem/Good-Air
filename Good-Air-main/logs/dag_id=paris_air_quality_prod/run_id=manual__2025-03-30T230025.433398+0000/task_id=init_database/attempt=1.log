@@ -1,0 +1,104 @@
+[2025-03-30T23:00:30.778+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-30T23:00:30.826+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: paris_air_quality_prod.init_database manual__2025-03-30T23:00:25.433398+00:00 [queued]>
+[2025-03-30T23:00:30.838+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: paris_air_quality_prod.init_database manual__2025-03-30T23:00:25.433398+00:00 [queued]>
+[2025-03-30T23:00:30.839+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-03-30T23:00:30.857+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): init_database> on 2025-03-30 23:00:25.433398+00:00
+[2025-03-30T23:00:30.871+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'paris_air_quality_prod', 'init_database', 'manual__2025-03-30T23:00:25.433398+00:00', '--job-id', '664', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmpm2t9hopd']
+[2025-03-30T23:00:30.875+0000] {standard_task_runner.py:105} INFO - Job 664: Subtask init_database
+[2025-03-30T23:00:30.876+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3929) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-30T23:00:30.877+0000] {standard_task_runner.py:72} INFO - Started process 3967 to run task
+[2025-03-30T23:00:31.029+0000] {task_command.py:467} INFO - Running <TaskInstance: paris_air_quality_prod.init_database manual__2025-03-30T23:00:25.433398+00:00 [running]> on host 04906466de51
+[2025-03-30T23:00:31.213+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='paris_air_quality_prod' AIRFLOW_CTX_TASK_ID='init_database' AIRFLOW_CTX_EXECUTION_DATE='2025-03-30T23:00:25.433398+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-30T23:00:25.433398+00:00'
+[2025-03-30T23:00:31.214+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-30T23:00:31.282+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-30T23:00:31.355+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/data_enriched_predict.py", line 76, in create_tables
+    conn.commit()
+    ^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'commit'
+[2025-03-30T23:00:31.406+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=paris_air_quality_prod, task_id=init_database, run_id=manual__2025-03-30T23:00:25.433398+00:00, execution_date=20250330T230025, start_date=20250330T230030, end_date=20250330T230031
+[2025-03-30T23:00:31.431+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-30T23:00:31.432+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 664 for task init_database ('Connection' object has no attribute 'commit'; 3967)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/data_enriched_predict.py", line 76, in create_tables
+    conn.commit()
+    ^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'commit'
+[2025-03-30T23:00:31.454+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-30T23:00:31.508+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-30T23:00:31.511+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,20 @@
+[2025-03-30T23:08:17.374+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-30T23:08:17.432+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: paris_air_quality_prod.create_forecast_table manual__2025-03-30T23:03:14.227213+00:00 [queued]>
+[2025-03-30T23:08:17.450+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: paris_air_quality_prod.create_forecast_table manual__2025-03-30T23:03:14.227213+00:00 [queued]>
+[2025-03-30T23:08:17.450+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-03-30T23:08:17.472+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_forecast_table> on 2025-03-30 23:03:14.227213+00:00
+[2025-03-30T23:08:17.484+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'paris_air_quality_prod', 'create_forecast_table', 'manual__2025-03-30T23:03:14.227213+00:00', '--job-id', '667', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmpba9qrabr']
+[2025-03-30T23:08:17.487+0000] {standard_task_runner.py:105} INFO - Job 667: Subtask create_forecast_table
+[2025-03-30T23:08:17.488+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4285) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-30T23:08:17.488+0000] {standard_task_runner.py:72} INFO - Started process 4310 to run task
+[2025-03-30T23:08:17.775+0000] {task_command.py:467} INFO - Running <TaskInstance: paris_air_quality_prod.create_forecast_table manual__2025-03-30T23:03:14.227213+00:00 [running]> on host 04906466de51
+[2025-03-30T23:08:18.094+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='paris_air_quality_prod' AIRFLOW_CTX_TASK_ID='create_forecast_table' AIRFLOW_CTX_EXECUTION_DATE='2025-03-30T23:03:14.227213+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-30T23:03:14.227213+00:00'
+[2025-03-30T23:08:18.095+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-30T23:08:18.171+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-30T23:08:18.233+0000] {data_enriched_predict.py:45} INFO - Table air_quality_forecasts créée avec succès
+[2025-03-30T23:08:18.235+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-30T23:08:18.283+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-30T23:08:18.284+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=paris_air_quality_prod, task_id=create_forecast_table, run_id=manual__2025-03-30T23:03:14.227213+00:00, execution_date=20250330T230314, start_date=20250330T230817, end_date=20250330T230818
+[2025-03-30T23:08:18.308+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-30T23:08:18.380+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-30T23:08:18.383+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

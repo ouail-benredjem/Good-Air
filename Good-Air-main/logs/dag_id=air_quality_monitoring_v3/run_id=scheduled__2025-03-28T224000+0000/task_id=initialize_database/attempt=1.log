@@ -1,0 +1,20 @@
+[2025-03-28T23:00:05.922+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-28T23:00:05.971+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.initialize_database scheduled__2025-03-28T22:40:00+00:00 [queued]>
+[2025-03-28T23:00:05.982+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.initialize_database scheduled__2025-03-28T22:40:00+00:00 [queued]>
+[2025-03-28T23:00:05.983+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-03-28T23:00:05.999+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): initialize_database> on 2025-03-28 22:40:00+00:00
+[2025-03-28T23:00:06.011+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_monitoring_v3', 'initialize_database', 'scheduled__2025-03-28T22:40:00+00:00', '--job-id', '485', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmplg_4d43h']
+[2025-03-28T23:00:06.013+0000] {standard_task_runner.py:105} INFO - Job 485: Subtask initialize_database
+[2025-03-28T23:00:06.014+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=18683) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-28T23:00:06.014+0000] {standard_task_runner.py:72} INFO - Started process 18708 to run task
+[2025-03-28T23:00:06.182+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_monitoring_v3.initialize_database scheduled__2025-03-28T22:40:00+00:00 [running]> on host 04906466de51
+[2025-03-28T23:00:06.375+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_monitoring_v3' AIRFLOW_CTX_TASK_ID='initialize_database' AIRFLOW_CTX_EXECUTION_DATE='2025-03-28T22:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-28T22:40:00+00:00'
+[2025-03-28T23:00:06.376+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-28T23:00:06.463+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T23:00:06.513+0000] {data_enriched_predict.py:73} INFO - Tables créées/réinitialisées avec succès
+[2025-03-28T23:00:06.548+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-28T23:00:06.596+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-28T23:00:06.597+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_monitoring_v3, task_id=initialize_database, run_id=scheduled__2025-03-28T22:40:00+00:00, execution_date=20250328T224000, start_date=20250328T230005, end_date=20250328T230006
+[2025-03-28T23:00:06.631+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-28T23:00:06.683+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-28T23:00:06.685+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

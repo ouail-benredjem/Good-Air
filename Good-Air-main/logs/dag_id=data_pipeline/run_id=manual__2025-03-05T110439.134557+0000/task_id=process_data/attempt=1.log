@@ -1,0 +1,69 @@
+[2025-03-05T11:04:48.982+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-05T11:04:49.035+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_pipeline.process_data manual__2025-03-05T11:04:39.134557+00:00 [queued]>
+[2025-03-05T11:04:49.047+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_pipeline.process_data manual__2025-03-05T11:04:39.134557+00:00 [queued]>
+[2025-03-05T11:04:49.048+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-03-05T11:04:49.062+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): process_data> on 2025-03-05 11:04:39.134557+00:00
+[2025-03-05T11:04:49.073+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'data_pipeline', 'process_data', 'manual__2025-03-05T11:04:39.134557+00:00', '--job-id', '141', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpf4fe_9_r']
+[2025-03-05T11:04:49.075+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=52) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-05T11:04:49.076+0000] {standard_task_runner.py:105} INFO - Job 141: Subtask process_data
+[2025-03-05T11:04:49.076+0000] {standard_task_runner.py:72} INFO - Started process 66 to run task
+[2025-03-05T11:04:49.229+0000] {task_command.py:467} INFO - Running <TaskInstance: data_pipeline.process_data manual__2025-03-05T11:04:39.134557+00:00 [running]> on host b67dbe9c517b
+[2025-03-05T11:04:49.426+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-05T11:04:39.134557+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-05T11:04:39.134557+00:00'
+[2025-03-05T11:04:49.428+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-05T11:04:49.448+0000] {data_pipeline.py:64} INFO - Données JSON chargées avec succès
+[2025-03-05T11:04:49.453+0000] {data_pipeline.py:76} INFO - Données de qualité de l'air structurées
+[2025-03-05T11:04:49.453+0000] {data_pipeline.py:77} INFO -     city  aqi  pm25  pm10            timestamp
+0  Paris  134   134    56  2025-03-05 09:00:00
+[2025-03-05T11:04:49.465+0000] {data_pipeline.py:91} INFO - Données météorologiques structurées
+[2025-03-05T11:04:49.466+0000] {data_pipeline.py:92} INFO -      city  temperature  humidity  pressure            timestamp
+0   Paris        12.61        60      1024  2025-03-05 12:00:00
+1   Paris        13.82        54      1023  2025-03-05 15:00:00
+2   Paris        13.37        52      1023  2025-03-05 18:00:00
+3   Paris        11.42        55      1022  2025-03-05 21:00:00
+4   Paris         9.66        65      1021  2025-03-06 00:00:00
+5   Paris         8.45        71      1020  2025-03-06 03:00:00
+6   Paris         7.07        73      1020  2025-03-06 06:00:00
+7   Paris        10.23        48      1020  2025-03-06 09:00:00
+8   Paris        14.96        33      1019  2025-03-06 12:00:00
+9   Paris        16.63        36      1017  2025-03-06 15:00:00
+10  Paris        14.52        49      1017  2025-03-06 18:00:00
+11  Paris        12.38        61      1018  2025-03-06 21:00:00
+12  Paris        11.28        65      1017  2025-03-07 00:00:00
+13  Paris         9.90        73      1017  2025-03-07 03:00:00
+14  Paris         8.43        79      1017  2025-03-07 06:00:00
+15  Paris        10.39        60      1017  2025-03-07 09:00:00
+16  Paris        14.74        41      1016  2025-03-07 12:00:00
+17  Paris        15.64        41      1014  2025-03-07 15:00:00
+18  Paris        14.22        52      1013  2025-03-07 18:00:00
+19  Paris        12.45        58      1013  2025-03-07 21:00:00
+20  Paris        10.76        64      1012  2025-03-08 00:00:00
+21  Paris         9.62        65      1011  2025-03-08 03:00:00
+22  Paris         9.18        63      1010  2025-03-08 06:00:00
+23  Paris        10.87        52      1010  2025-03-08 09:00:00
+24  Paris        15.49        40      1008  2025-03-08 12:00:00
+25  Paris        17.38        40      1006  2025-03-08 15:00:00
+26  Paris        15.58        52      1005  2025-03-08 18:00:00
+27  Paris        13.18        58      1005  2025-03-08 21:00:00
+28  Paris        11.93        60      1005  2025-03-09 00:00:00
+29  Paris        11.61        58      1003  2025-03-09 03:00:00
+30  Paris        11.20        56      1003  2025-03-09 06:00:00
+31  Paris        12.30        57      1003  2025-03-09 09:00:00
+32  Paris        11.33        79      1003  2025-03-09 12:00:00
+33  Paris        12.74        68      1002  2025-03-09 15:00:00
+34  Paris        11.28        80      1003  2025-03-09 18:00:00
+35  Paris        11.03        82      1004  2025-03-09 21:00:00
+36  Paris        10.84        82      1004  2025-03-10 00:00:00
+37  Paris         9.71        88      1003  2025-03-10 03:00:00
+38  Paris         9.86        89      1003  2025-03-10 06:00:00
+39  Paris         9.88        86      1004  2025-03-10 09:00:00
+[2025-03-05T11:04:49.484+0000] {data_pipeline.py:104} INFO - Données fusionnées et nettoyées
+[2025-03-05T11:04:49.485+0000] {data_pipeline.py:105} INFO - Empty DataFrame
+Columns: [city, aqi, pm25, pm10, timestamp, temperature, humidity, pressure]
+Index: []
+[2025-03-05T11:04:49.497+0000] {data_pipeline.py:109} INFO - Données sauvegardées dans /opt/airflow/data/data_paris.csv
+[2025-03-05T11:04:49.498+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-05T11:04:49.537+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-05T11:04:49.538+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_pipeline, task_id=process_data, run_id=manual__2025-03-05T11:04:39.134557+00:00, execution_date=20250305T110439, start_date=20250305T110449, end_date=20250305T110449
+[2025-03-05T11:04:49.573+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-05T11:04:49.628+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-05T11:04:49.631+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

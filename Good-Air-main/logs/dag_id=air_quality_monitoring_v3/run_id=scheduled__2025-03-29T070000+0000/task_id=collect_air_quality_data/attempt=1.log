@@ -1,0 +1,31 @@
+[2025-03-29T07:20:12.795+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-29T07:20:12.847+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.collect_air_quality_data scheduled__2025-03-29T07:00:00+00:00 [queued]>
+[2025-03-29T07:20:12.859+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_monitoring_v3.collect_air_quality_data scheduled__2025-03-29T07:00:00+00:00 [queued]>
+[2025-03-29T07:20:12.859+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-03-29T07:20:12.876+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): collect_air_quality_data> on 2025-03-29 07:00:00+00:00
+[2025-03-29T07:20:12.903+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=35792) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-29T07:20:12.904+0000] {standard_task_runner.py:72} INFO - Started process 35817 to run task
+[2025-03-29T07:20:12.914+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_monitoring_v3', 'collect_air_quality_data', 'scheduled__2025-03-29T07:00:00+00:00', '--job-id', '561', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmp3ikb503w']
+[2025-03-29T07:20:12.916+0000] {standard_task_runner.py:105} INFO - Job 561: Subtask collect_air_quality_data
+[2025-03-29T07:20:13.176+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_monitoring_v3.collect_air_quality_data scheduled__2025-03-29T07:00:00+00:00 [running]> on host 04906466de51
+[2025-03-29T07:20:13.580+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_monitoring_v3' AIRFLOW_CTX_TASK_ID='collect_air_quality_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-29T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-29T07:00:00+00:00'
+[2025-03-29T07:20:13.581+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-29T07:20:13.597+0000] {data_enriched_predict.py:144} INFO - Collecte pour Lyon...
+[2025-03-29T07:20:14.691+0000] {data_enriched_predict.py:101} INFO - Statut API : 200
+[2025-03-29T07:20:14.692+0000] {data_enriched_predict.py:165} INFO - Données validées pour Lyon
+[2025-03-29T07:20:15.098+0000] {data_enriched_predict.py:144} INFO - Collecte pour Paris...
+[2025-03-29T07:20:16.131+0000] {data_enriched_predict.py:101} INFO - Statut API : 200
+[2025-03-29T07:20:16.132+0000] {data_enriched_predict.py:165} INFO - Données validées pour Paris
+[2025-03-29T07:20:16.599+0000] {data_enriched_predict.py:144} INFO - Collecte pour Marseille...
+[2025-03-29T07:20:17.713+0000] {data_enriched_predict.py:101} INFO - Statut API : 200
+[2025-03-29T07:20:17.714+0000] {data_enriched_predict.py:165} INFO - Données validées pour Marseille
+[2025-03-29T07:20:18.105+0000] {data_enriched_predict.py:185} INFO - Début du stockage de 3 enregistrements
+[2025-03-29T07:20:18.173+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-29T07:20:18.294+0000] {data_enriched_predict.py:214} INFO - Stockage réussi de 3 enregistrements
+[2025-03-29T07:20:18.300+0000] {data_enriched_predict.py:219} INFO - Total en base : 140
+[2025-03-29T07:20:18.303+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-29T07:20:18.362+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-29T07:20:18.363+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_monitoring_v3, task_id=collect_air_quality_data, run_id=scheduled__2025-03-29T07:00:00+00:00, execution_date=20250329T070000, start_date=20250329T072012, end_date=20250329T072018
+[2025-03-29T07:20:18.396+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-29T07:20:18.473+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-29T07:20:18.476+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

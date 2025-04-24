@@ -1,0 +1,71 @@
+[2025-03-05T10:53:19.634+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-05T10:53:19.796+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_pipeline.store_data manual__2025-03-05T10:53:04.801751+00:00 [queued]>
+[2025-03-05T10:53:19.808+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_pipeline.store_data manual__2025-03-05T10:53:04.801751+00:00 [queued]>
+[2025-03-05T10:53:19.809+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-03-05T10:53:19.823+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): store_data> on 2025-03-05 10:53:04.801751+00:00
+[2025-03-05T10:53:19.831+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'data_pipeline', 'store_data', 'manual__2025-03-05T10:53:04.801751+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpp9onjhek']
+[2025-03-05T10:53:19.834+0000] {standard_task_runner.py:105} INFO - Job 135: Subtask store_data
+[2025-03-05T10:53:19.834+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-05T10:53:19.835+0000] {standard_task_runner.py:72} INFO - Started process 84 to run task
+[2025-03-05T10:53:19.982+0000] {task_command.py:467} INFO - Running <TaskInstance: data_pipeline.store_data manual__2025-03-05T10:53:04.801751+00:00 [running]> on host 5a16a8aad9fd
+[2025-03-05T10:53:20.192+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_pipeline' AIRFLOW_CTX_TASK_ID='store_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-05T10:53:04.801751+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-05T10:53:04.801751+00:00'
+[2025-03-05T10:53:20.194+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-05T10:53:20.217+0000] {data_pipeline.py:158} INFO - Dataframe chargé avec 41 lignes
+[2025-03-05T10:53:20.227+0000] {data_pipeline.py:161} INFO -     city    aqi   pm25  ...  temperature humidity  pressure
+0  Paris  134.0  134.0  ...         0.00      0.0       0.0
+1  Paris    0.0    0.0  ...        12.15     60.0    1024.0
+2  Paris    0.0    0.0  ...        13.51     54.0    1023.0
+3  Paris    0.0    0.0  ...        13.22     52.0    1023.0
+4  Paris    0.0    0.0  ...        11.42     55.0    1022.0
+
+[5 rows x 8 columns]
+[2025-03-05T10:53:20.281+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-05T10:53:20.341+0000] {data_pipeline.py:181} INFO - Table vérifiée/créée
+[2025-03-05T10:53:20.342+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 134.0, 134.0, 56.0, '2025-03-05 09:00:00', 0.0, 0.0, 0.0)
+[2025-03-05T10:53:20.345+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-05 12:00:00', 12.15, 60.0, 1024.0)
+[2025-03-05T10:53:20.347+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-05 15:00:00', 13.51, 54.0, 1023.0)
+[2025-03-05T10:53:20.348+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-05 18:00:00', 13.22, 52.0, 1023.0)
+[2025-03-05T10:53:20.350+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-05 21:00:00', 11.42, 55.0, 1022.0)
+[2025-03-05T10:53:20.351+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 00:00:00', 9.66, 65.0, 1021.0)
+[2025-03-05T10:53:20.352+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 03:00:00', 8.45, 71.0, 1020.0)
+[2025-03-05T10:53:20.354+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 06:00:00', 7.07, 73.0, 1020.0)
+[2025-03-05T10:53:20.356+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 09:00:00', 10.23, 48.0, 1020.0)
+[2025-03-05T10:53:20.357+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 12:00:00', 14.96, 33.0, 1019.0)
+[2025-03-05T10:53:20.358+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 15:00:00', 16.63, 36.0, 1017.0)
+[2025-03-05T10:53:20.359+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 18:00:00', 14.52, 49.0, 1017.0)
+[2025-03-05T10:53:20.360+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-06 21:00:00', 12.38, 61.0, 1018.0)
+[2025-03-05T10:53:20.362+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 00:00:00', 11.28, 65.0, 1017.0)
+[2025-03-05T10:53:20.364+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 03:00:00', 9.9, 73.0, 1017.0)
+[2025-03-05T10:53:20.365+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 06:00:00', 8.43, 79.0, 1017.0)
+[2025-03-05T10:53:20.367+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 09:00:00', 10.39, 60.0, 1017.0)
+[2025-03-05T10:53:20.368+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 12:00:00', 14.74, 41.0, 1016.0)
+[2025-03-05T10:53:20.370+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 15:00:00', 15.64, 41.0, 1014.0)
+[2025-03-05T10:53:20.372+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 18:00:00', 14.22, 52.0, 1013.0)
+[2025-03-05T10:53:20.374+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-07 21:00:00', 12.45, 58.0, 1013.0)
+[2025-03-05T10:53:20.375+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 00:00:00', 10.76, 64.0, 1012.0)
+[2025-03-05T10:53:20.377+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 03:00:00', 9.62, 65.0, 1011.0)
+[2025-03-05T10:53:20.378+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 06:00:00', 9.18, 63.0, 1010.0)
+[2025-03-05T10:53:20.379+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 09:00:00', 10.87, 52.0, 1010.0)
+[2025-03-05T10:53:20.380+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 12:00:00', 15.49, 40.0, 1008.0)
+[2025-03-05T10:53:20.381+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 15:00:00', 17.38, 40.0, 1006.0)
+[2025-03-05T10:53:20.383+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 18:00:00', 15.58, 52.0, 1005.0)
+[2025-03-05T10:53:20.384+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-08 21:00:00', 13.18, 58.0, 1005.0)
+[2025-03-05T10:53:20.386+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 00:00:00', 11.93, 60.0, 1005.0)
+[2025-03-05T10:53:20.387+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 03:00:00', 11.61, 58.0, 1003.0)
+[2025-03-05T10:53:20.388+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 06:00:00', 11.2, 56.0, 1003.0)
+[2025-03-05T10:53:20.389+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 09:00:00', 12.3, 57.0, 1003.0)
+[2025-03-05T10:53:20.391+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 12:00:00', 11.33, 79.0, 1003.0)
+[2025-03-05T10:53:20.392+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 15:00:00', 12.74, 68.0, 1002.0)
+[2025-03-05T10:53:20.393+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 18:00:00', 11.28, 80.0, 1003.0)
+[2025-03-05T10:53:20.394+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-09 21:00:00', 11.03, 82.0, 1004.0)
+[2025-03-05T10:53:20.396+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-10 00:00:00', 10.84, 82.0, 1004.0)
+[2025-03-05T10:53:20.397+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-10 03:00:00', 9.71, 88.0, 1003.0)
+[2025-03-05T10:53:20.398+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-10 06:00:00', 9.86, 89.0, 1003.0)
+[2025-03-05T10:53:20.399+0000] {logging_mixin.py:190} INFO - Insertion : ('Paris', 0.0, 0.0, 0.0, '2025-03-10 09:00:00', 9.88, 86.0, 1004.0)
+[2025-03-05T10:53:20.401+0000] {data_pipeline.py:191} INFO - Données insérées avec succès
+[2025-03-05T10:53:20.401+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-05T10:53:20.439+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-05T10:53:20.440+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_pipeline, task_id=store_data, run_id=manual__2025-03-05T10:53:04.801751+00:00, execution_date=20250305T105304, start_date=20250305T105319, end_date=20250305T105320
+[2025-03-05T10:53:20.493+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-05T10:53:20.540+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-05T10:53:20.543+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

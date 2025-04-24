@@ -1,0 +1,80 @@
+[2025-04-10T12:00:04.366+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T12:00:04.471+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:00:04.487+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:00:04.488+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-10T12:00:04.506+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_data_mart> on 2025-04-10 10:00:00+00:00
+[2025-04-10T12:00:04.515+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'create_data_mart', 'scheduled__2025-04-10T10:00:00+00:00', '--job-id', '762', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpiegu99pp']
+[2025-04-10T12:00:04.517+0000] {standard_task_runner.py:105} INFO - Job 762: Subtask create_data_mart
+[2025-04-10T12:00:04.518+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=360) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-10T12:00:04.519+0000] {standard_task_runner.py:72} INFO - Started process 387 to run task
+[2025-04-10T12:00:04.700+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [running]> on host 04906466de51
+[2025-04-10T12:00:04.904+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='fbleza5@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='create_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-10T10:00:00+00:00'
+[2025-04-10T12:00:04.905+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-10T12:00:04.973+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:00:05.134+0000] {data_pipeline.py:167} INFO - Tables de Data Mart créées pour chaque ville
+[2025-04-10T12:00:05.135+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-10T12:00:05.192+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-10T12:00:05.193+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=create_data_mart, run_id=scheduled__2025-04-10T10:00:00+00:00, execution_date=20250410T100000, start_date=20250410T120004, end_date=20250410T120005
+[2025-04-10T12:00:05.260+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T12:00:05.335+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T12:00:05.339+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-10T12:01:32.434+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T12:01:32.488+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:01:32.502+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:01:32.503+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-10T12:01:32.520+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_data_mart> on 2025-04-10 10:00:00+00:00
+[2025-04-10T12:01:32.530+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'create_data_mart', 'scheduled__2025-04-10T10:00:00+00:00', '--job-id', '766', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpne3dl89d']
+[2025-04-10T12:01:32.533+0000] {standard_task_runner.py:105} INFO - Job 766: Subtask create_data_mart
+[2025-04-10T12:01:32.534+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=469) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-10T12:01:32.534+0000] {standard_task_runner.py:72} INFO - Started process 483 to run task
+[2025-04-10T12:01:32.691+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [running]> on host 04906466de51
+[2025-04-10T12:01:32.891+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='fbleza5@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='create_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-10T10:00:00+00:00'
+[2025-04-10T12:01:32.892+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-10T12:01:32.955+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:01:32.994+0000] {data_pipeline.py:167} INFO - Tables de Data Mart créées pour chaque ville
+[2025-04-10T12:01:32.995+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-10T12:01:33.039+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-10T12:01:33.040+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=create_data_mart, run_id=scheduled__2025-04-10T10:00:00+00:00, execution_date=20250410T100000, start_date=20250410T120132, end_date=20250410T120133
+[2025-04-10T12:01:33.071+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T12:01:33.142+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T12:01:33.145+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-10T12:14:13.420+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T12:14:13.468+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:14:13.479+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:14:13.480+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-10T12:14:13.495+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_data_mart> on 2025-04-10 10:00:00+00:00
+[2025-04-10T12:14:13.503+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'create_data_mart', 'scheduled__2025-04-10T10:00:00+00:00', '--job-id', '771', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmp6lkkexkt']
+[2025-04-10T12:14:13.506+0000] {standard_task_runner.py:105} INFO - Job 771: Subtask create_data_mart
+[2025-04-10T12:14:13.507+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=921) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-10T12:14:13.508+0000] {standard_task_runner.py:72} INFO - Started process 935 to run task
+[2025-04-10T12:14:13.664+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [running]> on host 04906466de51
+[2025-04-10T12:14:13.848+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='fbleza5@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='create_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-10T10:00:00+00:00'
+[2025-04-10T12:14:13.849+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-10T12:14:13.906+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:14:13.947+0000] {data_pipeline.py:168} INFO - Tables de Data Mart créées pour chaque ville
+[2025-04-10T12:14:13.948+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-10T12:14:13.988+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-10T12:14:13.989+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=create_data_mart, run_id=scheduled__2025-04-10T10:00:00+00:00, execution_date=20250410T100000, start_date=20250410T121413, end_date=20250410T121413
+[2025-04-10T12:14:14.045+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T12:14:14.103+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T12:14:14.105+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-10T12:16:55.215+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T12:16:55.381+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:16:55.393+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [queued]>
+[2025-04-10T12:16:55.394+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-10T12:16:55.409+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): create_data_mart> on 2025-04-10 10:00:00+00:00
+[2025-04-10T12:16:55.418+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'create_data_mart', 'scheduled__2025-04-10T10:00:00+00:00', '--job-id', '776', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpio0y7b6j']
+[2025-04-10T12:16:55.421+0000] {standard_task_runner.py:105} INFO - Job 776: Subtask create_data_mart
+[2025-04-10T12:16:55.421+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1080) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-10T12:16:55.421+0000] {standard_task_runner.py:72} INFO - Started process 1107 to run task
+[2025-04-10T12:16:55.580+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.create_data_mart scheduled__2025-04-10T10:00:00+00:00 [running]> on host 04906466de51
+[2025-04-10T12:16:55.778+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='fbleza5@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='create_data_mart' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-10T10:00:00+00:00'
+[2025-04-10T12:16:55.779+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-10T12:16:55.949+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-10T12:16:55.992+0000] {data_pipeline.py:179} INFO - Tables de Data Mart créées pour chaque ville
+[2025-04-10T12:16:55.992+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-10T12:16:56.033+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-10T12:16:56.034+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=create_data_mart, run_id=scheduled__2025-04-10T10:00:00+00:00, execution_date=20250410T100000, start_date=20250410T121655, end_date=20250410T121656
+[2025-04-10T12:16:56.078+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T12:16:56.134+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T12:16:56.136+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

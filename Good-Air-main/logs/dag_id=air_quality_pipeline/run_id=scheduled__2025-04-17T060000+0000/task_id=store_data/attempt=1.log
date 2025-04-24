@@ -1,0 +1,20 @@
+[2025-04-17T09:54:47.353+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T09:54:47.410+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.store_data scheduled__2025-04-17T06:00:00+00:00 [queued]>
+[2025-04-17T09:54:47.422+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.store_data scheduled__2025-04-17T06:00:00+00:00 [queued]>
+[2025-04-17T09:54:47.423+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-17T09:54:47.444+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): store_data> on 2025-04-17 06:00:00+00:00
+[2025-04-17T09:54:47.451+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'store_data', 'scheduled__2025-04-17T06:00:00+00:00', '--job-id', '803', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpu7x0ut62']
+[2025-04-17T09:54:47.453+0000] {standard_task_runner.py:105} INFO - Job 803: Subtask store_data
+[2025-04-17T09:54:47.454+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=236) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-17T09:54:47.455+0000] {standard_task_runner.py:72} INFO - Started process 263 to run task
+[2025-04-17T09:54:47.633+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.store_data scheduled__2025-04-17T06:00:00+00:00 [running]> on host 04906466de51
+[2025-04-17T09:54:48.152+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='fbleza5@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='store_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T06:00:00+00:00'
+[2025-04-17T09:54:48.154+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T09:54:48.217+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-04-17T09:54:48.438+0000] {data_pipeline.py:152} INFO - Données insérées dans le Data Warehouse
+[2025-04-17T09:54:48.439+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-17T09:54:48.487+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T09:54:48.488+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=store_data, run_id=scheduled__2025-04-17T06:00:00+00:00, execution_date=20250417T060000, start_date=20250417T095447, end_date=20250417T095448
+[2025-04-17T09:54:48.514+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T09:54:48.576+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T09:54:48.578+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

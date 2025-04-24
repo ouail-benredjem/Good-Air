@@ -1,0 +1,49 @@
+[2025-03-30T22:51:44.597+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-30T22:51:44.640+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: paris_air_quality_prod.daily_forecast manual__2025-03-30T22:51:22.621476+00:00 [queued]>
+[2025-03-30T22:51:44.651+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: paris_air_quality_prod.daily_forecast manual__2025-03-30T22:51:22.621476+00:00 [queued]>
+[2025-03-30T22:51:44.652+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-03-30T22:51:44.667+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): daily_forecast> on 2025-03-30 22:51:22.621476+00:00
+[2025-03-30T22:51:44.676+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'paris_air_quality_prod', 'daily_forecast', 'manual__2025-03-30T22:51:22.621476+00:00', '--job-id', '663', '--raw', '--subdir', 'DAGS_FOLDER/data_enriched_predict.py', '--cfg-path', '/tmp/tmpbx6zy_c1']
+[2025-03-30T22:51:44.679+0000] {standard_task_runner.py:105} INFO - Job 663: Subtask daily_forecast
+[2025-03-30T22:51:44.679+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3584) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-30T22:51:44.680+0000] {standard_task_runner.py:72} INFO - Started process 3609 to run task
+[2025-03-30T22:51:44.818+0000] {task_command.py:467} INFO - Running <TaskInstance: paris_air_quality_prod.daily_forecast manual__2025-03-30T22:51:22.621476+00:00 [running]> on host 04906466de51
+[2025-03-30T22:51:45.001+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='paris_air_quality_prod' AIRFLOW_CTX_TASK_ID='daily_forecast' AIRFLOW_CTX_EXECUTION_DATE='2025-03-30T22:51:22.621476+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-30T22:51:22.621476+00:00'
+[2025-03-30T22:51:45.003+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-30T22:51:45.016+0000] {data_enriched_predict.py:172} INFO - Début du workflow de prévision
+[2025-03-30T22:51:45.060+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-30T22:51:45.062+0000] {data_enriched_predict.py:181} INFO - Exécution de la requête: SELECT * FROM data_warehouse WHERE city = 'Paris'
+[2025-03-30T22:51:45.118+0000] {data_enriched_predict.py:183} INFO - Données chargées de la base: 160 lignes
+[2025-03-30T22:51:45.118+0000] {data_enriched_predict.py:184} INFO - Colonnes de la base: ['city', 'timestamp', 'aqi', 'pm25', 'pm10', 'temperature', 'humidity', 'pressure']
+[2025-03-30T22:51:46.270+0000] {logging_mixin.py:190} WARNING - /opt/airflow/dags/data_enriched_predict.py:191 FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+[2025-03-30T22:51:46.271+0000] {data_enriched_predict.py:192} INFO - Données après ajout des données actuelles: 161 lignes
+[2025-03-30T22:51:46.272+0000] {data_enriched_predict.py:193} INFO - Colonnes après ajout des données actuelles: ['city', 'timestamp', 'aqi', 'pm25', 'pm10', 'temperature', 'humidity', 'pressure']
+[2025-03-30T22:51:46.273+0000] {data_enriched_predict.py:137} INFO - Données initiales: 161 lignes
+[2025-03-30T22:51:46.273+0000] {data_enriched_predict.py:138} INFO - Colonnes disponibles: ['city', 'timestamp', 'aqi', 'pm25', 'pm10', 'temperature', 'humidity', 'pressure']
+[2025-03-30T22:51:46.277+0000] {data_enriched_predict.py:149} INFO - Données avant dropna: 161 lignes
+[2025-03-30T22:51:46.277+0000] {data_enriched_predict.py:150} INFO - Colonnes après feature engineering: ['city', 'timestamp', 'aqi', 'pm25', 'pm10', 'temperature', 'humidity', 'pressure', 'hour', 'day_of_week', 'month']
+[2025-03-30T22:51:46.279+0000] {data_enriched_predict.py:154} INFO - Données après dropna: 161 lignes
+[2025-03-30T22:51:46.281+0000] {data_enriched_predict.py:162} INFO - Nombre de valeurs NaN par colonne:
+city           1
+timestamp      0
+aqi            0
+pm25           1
+pm10           1
+temperature    0
+humidity       0
+pressure       0
+hour           0
+day_of_week    0
+month          0
+dtype: int64
+[2025-03-30T22:51:46.282+0000] {data_enriched_predict.py:220} INFO - Features utilisées pour l'entraînement: ['hour', 'day_of_week', 'month', 'temperature', 'humidity', 'pressure']
+[2025-03-30T22:51:46.317+0000] {data_enriched_predict.py:227} INFO - Validation Fold 1 - R²: 1.00
+[2025-03-30T22:51:46.342+0000] {data_enriched_predict.py:227} INFO - Validation Fold 2 - R²: -0.02
+[2025-03-30T22:51:46.343+0000] {data_enriched_predict.py:231} WARNING - Certains scores de validation sont négatifs, le modèle pourrait ne pas être fiable
+[2025-03-30T22:51:46.527+0000] {data_enriched_predict.py:283} INFO - Prévisions enregistrées avec succès pour 16 jours
+[2025-03-30T22:51:46.528+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-30T22:51:46.569+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-30T22:51:46.570+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=paris_air_quality_prod, task_id=daily_forecast, run_id=manual__2025-03-30T22:51:22.621476+00:00, execution_date=20250330T225122, start_date=20250330T225144, end_date=20250330T225146
+[2025-03-30T22:51:46.626+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-30T22:51:46.674+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-30T22:51:46.677+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

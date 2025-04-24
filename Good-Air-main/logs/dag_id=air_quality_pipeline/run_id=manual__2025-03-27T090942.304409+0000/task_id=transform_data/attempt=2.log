@@ -1,0 +1,42 @@
+[2025-03-28T10:46:32.181+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-28T10:46:32.235+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_quality_pipeline.transform_data manual__2025-03-27T09:09:42.304409+00:00 [queued]>
+[2025-03-28T10:46:32.249+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_quality_pipeline.transform_data manual__2025-03-27T09:09:42.304409+00:00 [queued]>
+[2025-03-28T10:46:32.250+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 3
+[2025-03-28T10:46:32.266+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transform_data> on 2025-03-27 09:09:42.304409+00:00
+[2025-03-28T10:46:32.273+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'air_quality_pipeline', 'transform_data', 'manual__2025-03-27T09:09:42.304409+00:00', '--job-id', '279', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline.py', '--cfg-path', '/tmp/tmpr2xxqqze']
+[2025-03-28T10:46:32.275+0000] {standard_task_runner.py:105} INFO - Job 279: Subtask transform_data
+[2025-03-28T10:46:32.276+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=382) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-28T10:46:32.276+0000] {standard_task_runner.py:72} INFO - Started process 396 to run task
+[2025-03-28T10:46:32.528+0000] {task_command.py:467} INFO - Running <TaskInstance: air_quality_pipeline.transform_data manual__2025-03-27T09:09:42.304409+00:00 [running]> on host 6d0e87c01008
+[2025-03-28T10:46:32.707+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='air_quality_pipeline' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-27T09:09:42.304409+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-27T09:09:42.304409+00:00'
+[2025-03-28T10:46:32.708+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-28T10:46:33.915+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T10:46:33.958+0000] {data_pipeline.py:55} INFO - Données brutes insérées pour Paris dans Data Lake
+[2025-03-28T10:46:35.101+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T10:46:35.256+0000] {data_pipeline.py:55} INFO - Données brutes insérées pour Lyon dans Data Lake
+[2025-03-28T10:46:36.409+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T10:46:36.459+0000] {data_pipeline.py:55} INFO - Données brutes insérées pour Nice dans Data Lake
+[2025-03-28T10:46:37.637+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T10:46:37.680+0000] {data_pipeline.py:55} INFO - Données brutes insérées pour Marseille dans Data Lake
+[2025-03-28T10:46:37.732+0000] {base.py:84} INFO - Retrieving connection 'postgres_data'
+[2025-03-28T10:46:37.916+0000] {data_pipeline.py:141} INFO - Données insérées dans le Data Warehouse
+[2025-03-28T10:46:37.917+0000] {data_pipeline.py:100} INFO - Données transformées et stockées dans le Data Warehouse
+[2025-03-28T10:46:37.918+0000] {python.py:240} INFO - Done. Returned value was:           city           timestamp  temperature  ...  aqi  pm25  pm10
+0        Paris 2025-03-28 12:00:00           12  ...   56    56    24
+1        Paris 2025-03-28 15:00:00           14  ...   56    56    24
+2        Paris 2025-03-28 18:00:00           10  ...   56    56    24
+3        Paris 2025-03-28 21:00:00            7  ...   56    56    24
+4        Paris 2025-03-29 00:00:00            6  ...   56    56    24
+..         ...                 ...          ...  ...  ...   ...   ...
+155  Marseille 2025-04-01 21:00:00           10  ...   30    30    15
+156  Marseille 2025-04-02 00:00:00           10  ...   30    30    15
+157  Marseille 2025-04-02 03:00:00           10  ...   30    30    15
+158  Marseille 2025-04-02 06:00:00            9  ...   30    30    15
+159  Marseille 2025-04-02 09:00:00           11  ...   30    30    15
+
+[160 rows x 8 columns]
+[2025-03-28T10:46:38.152+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-28T10:46:38.153+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=air_quality_pipeline, task_id=transform_data, run_id=manual__2025-03-27T09:09:42.304409+00:00, execution_date=20250327T090942, start_date=20250328T104632, end_date=20250328T104638
+[2025-03-28T10:46:38.184+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-28T10:46:38.234+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-28T10:46:38.236+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
